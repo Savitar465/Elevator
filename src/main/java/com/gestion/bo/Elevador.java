@@ -16,12 +16,12 @@ public class Elevador {
 
     }
 
-    void personaEnElevador(int persona) throws Exception {
+    String personaEnElevador(int persona) throws Exception {
         capacidad += persona;
         if (capacidad == 1) {
-            System.out.println("En el elevador");
+            return  "En el elevador";
         } else if (capacidad == 0) {
-            System.out.println("Elevador vacio");
+            return "Elevador vacio";
 
         } else {
             throw new Exception("Capacidad exedida");

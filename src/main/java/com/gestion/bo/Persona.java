@@ -8,8 +8,12 @@ public class Persona {
         return pisoDestino;
     }
 
-    public void asignarPisoAleatorio() {
+    public int asignarPisoAleatorio() throws Exception {
         this.pisoDestino = (int) (Math.random() * 3 + 1);
+        if (this.pisoDestino > 3 || this.pisoDestino < 1) {
+            throw new Exception("Asensor Fuera de Rango");
+        }
+        return this.pisoDestino;
     }
 
     public int crearPersona() throws Exception {
@@ -20,10 +24,15 @@ public class Persona {
         return pisoPersona;
     }
 
-    public void llamarElevador() throws Exception {
+    public boolean llamarElevador() throws Exception {
         asignarPisoAleatorio();
-        if (crearPersona() == pisoDestino) {
+        Boolean esDiferente=false;
+        int newPerson=crearPersona();
+        if (newPerson == pisoDestino) {
             throw new Exception("Pisos Iguales");
+        }else {
+            esDiferente=true;
+            return esDiferente;
         }
     }
 
